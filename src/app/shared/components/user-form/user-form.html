@@ -14,17 +14,17 @@
     </div>
 
     <div>
-      <label class="mb-2 block text-sm font-medium text-slate-700">Rol *</label>
+      <label class="mb-2 block text-sm font-medium text-slate-700">Score *</label>
       <select
-        formControlName="role"
+        formControlName="score"
         class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-800 transition-all focus:border-isil focus:outline-none focus:ring-2 focus:ring-isil/20"
       >
-        <option value="" disabled>Seleccionar rol</option>
-        <option value="ADMIN">Administrador</option>
-        <option value="USER">Usuario</option>
-        <option value="SELLER">Vendedor</option>
+        <option value="" disabled>Seleccionar score</option>
+        <option value="100">100</option>
+        <option value="50">50</option>
+        <option value="10">10</option>
       </select>
-      @if (form().get('role')?.invalid && form().get('role')?.touched) {
+      @if (form().get('score')?.invalid && form().get('score')?.touched) {
         <p class="mt-1 text-sm text-red-500">El rol es obligatorio</p>
       }
     </div>

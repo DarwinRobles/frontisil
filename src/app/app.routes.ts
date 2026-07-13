@@ -11,6 +11,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/user/list/user-list').then((m) => m.UserList),
   },
   {
+    path: 'users/reports',
+    loadComponent: () => import('./features/user/report/user-report').then((m) => m.UserReport),
+  },
+  {
     path: 'users/:id/edit',
     loadComponent: () => import('./features/user/edit/user-edit').then((m) => m.UserEdit),
   },

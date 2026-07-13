@@ -22,7 +22,7 @@ export class Register {
   registerForm: FormGroup = this.fb.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    role: ['', Validators.required],
+    score: ['', Validators.required],
   });
 
   onSubmit(): void {
@@ -33,10 +33,9 @@ export class Register {
     this.success.set(false);
 
     this.userService.registerUser(this.registerForm.value).subscribe({
-      next: () => {
+      next: (response) => {
         this.loading.set(false);
         this.success.set(true);
-
         this.registerForm.reset();
         setTimeout(() => this.router.navigate(['/users']), 1500);
       },

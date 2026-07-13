@@ -17,9 +17,17 @@
         <a
           routerLink="/users"
           routerLinkActive="bg-white text-isil shadow-sm"
+          [routerLinkActiveOptions]="{ exact: true }"
           class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition-all"
         >
           Usuarios
+        </a>
+        <a
+          routerLink="/users/reports"
+          routerLinkActive="bg-white text-isil shadow-sm"
+          class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition-all"
+        >
+          Reportes
         </a>
         <a
           routerLink="/register"

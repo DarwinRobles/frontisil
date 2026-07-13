@@ -1,12 +1,12 @@
 export interface UserRequest {
    name?: string;
    email?: string;
-   role?: string;
+   score?: string;
 }
 
 export interface UserResponse {
-    id: number;
+    id: string;
     name: string;
     email: string;
-    role: string;
+    score: string;
 }

@@ -16,8 +16,8 @@ export class UserList implements OnInit {
   loading = signal(true);
   error = signal<string | null>(null);
   searchQuery = signal('');
-  deletingId = signal<number | null>(null);
-  confirmDeleteId = signal<number | null>(null);
+  deletingId = signal<string | null>(null);
+  confirmDeleteId = signal<string | null>(null);
 
   ngOnInit(): void {
     this.loadUsers();
@@ -47,7 +47,7 @@ export class UserList implements OnInit {
       (user) =>
         user.name.toLowerCase().includes(query) ||
         user.email.toLowerCase().includes(query) ||
-        user.role.toLowerCase().includes(query)
+        user.score.toLowerCase().includes(query)
     );
   }
 
@@ -56,7 +56,7 @@ export class UserList implements OnInit {
     this.searchQuery.set(input.value);
   }
 
-  askDelete(id: number): void {
+  askDelete(id: string): void {
     this.confirmDeleteId.set(id);
   }
 
@@ -83,13 +83,13 @@ export class UserList implements OnInit {
     });
   }
 
-  getRoleBadgeClass(role: string): string {
+  getRoleBadgeClass(score: string): string {
     const classes: Record<string, string> = {
-      ADMIN: 'bg-purple-100 text-purple-700',
-      USER: 'bg-isil-light text-isil-dark',
-      SELLER: 'bg-amber-100 text-amber-700',
+      100: 'bg-green-100 text-green-700',
+      50: 'bg-amber-100 text-amber-700',
+      10: 'bg-red-100 text-red-700',
     };
-    return classes[role] ?? 'bg-slate-100 text-slate-600';
+    return classes[score] ?? 'bg-slate-100 text-slate-600';
   }
 
   getInitials(name: string): string {

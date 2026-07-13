@@ -21,16 +21,16 @@ export class UserEdit implements OnInit {
   pageLoading = signal(true);
   error = signal<string | null>(null);
   success = signal(false);
-  userId = signal<number | null>(null);
+  userId = signal<string | null>(null);
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = String(this.route.snapshot.paramMap.get('id'));
     this.userId.set(id);
 
     this.editForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      role: ['', Validators.required],
+      score: ['', Validators.required],
     });
 
     this.userService.getUserById(id).subscribe({
